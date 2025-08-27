@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Генератор паролей</title>
+
+  <!-- Шрифт -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+<main class="container">
+  <header class="header">
+    <h1 class="title">Генератор паролей</h1>
+    <p class="subtitle">Выбери параметры и сгенерируй надёжный пароль</p>
+  </header>
+
+  <section class="card">
+    <!-- Вывод пароля -->
+    <div class="output">
+      <input
+        class="output__field"
+        type="text"
+        placeholder="Пароль появится здесь"
+        readonly
+        data-js-password
+        aria-label="Сгенерированный пароль"
+      />
+      <button class="btn btn-secondary" type="button" data-js-copy>Копировать</button>
+    </div>
+
+    <div class="controls">
+      <div class="row">
+        <label for="length" class="label">
+          Длина: <span class="length-value" data-js-length-value>16</span>
+        </label>
+        <input
+          id="length"
+          class="range"
+          type="range"
+          min="6"
+          max="32"
+          value="19"
+          data-js-length
+          aria-label="Длина пароля"
+        />
+      </div>
+
+      <div class="grid" data-js-checkboxes>
+        <label class="check">
+          <input type="checkbox" data-js-lower />
+          <span>строчные a–z</span>
+        </label>
+
+        <label class="check">
+          <input type="checkbox" data-js-upper />
+          <span>заглавные A–Z</span>
+        </label>
+
+        <label class="check">
+          <input type="checkbox" data-js-digits />
+          <span>цифры 0–9</span>
+        </label>
+
+        <label class="check">
+          <input type="checkbox" data-js-symbols />
+          <span>символы !@#$…</span>
+        </label>
+      </div>
+
+      <!-- Действия -->
+      <div class="actions">
+        <button class="btn" type="button" data-js-generate>Сгенерировать</button>
+        <button class="btn btn-ghost" type="reset" data-js-reset>Сбросить</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <small>Подсказка: сохраняй пароль в менеджере паролей</small>
+  </footer>
+</main>
+<script src="./script.js" type="module" defer></script>
+</body>
+</html>
